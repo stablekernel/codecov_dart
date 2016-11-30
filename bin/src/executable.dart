@@ -112,7 +112,7 @@ main(List<String> args) async {
     exit(1);
   }
   if (env.lcov) {
-    coverage.lcovOutput.copySync('coverage.lcov');
+    coverage.lcovOutput.copySync('lcov.info');
     lcovSuccess = true;
   }
   if (env.html) {
@@ -125,7 +125,7 @@ main(List<String> args) async {
 
   log.shout('\nCoverage generated!');
   if (lcovSuccess) {
-    log.shout('\tlcov:  \tcoverage.lcov');
+    log.shout('\tlcov:  \tlcov.info');
   }
   if (htmlSuccess) {
     log.shout('\treport:\tcoverage_report/index.html');
