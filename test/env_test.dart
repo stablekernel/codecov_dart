@@ -3,11 +3,7 @@ library dart_codecov_generator.test.env_test;
 
 import 'package:test/test.dart';
 
-import '../bin/src/coverage.dart';
 import '../bin/src/env.dart';
-import '../bin/src/executable.dart';
-import '../bin/src/test.dart';
-import '../bin/generate_coverage.dart';
 
 void main() {
   group('Environment', () {

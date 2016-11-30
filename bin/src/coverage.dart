@@ -19,7 +19,7 @@ import 'dart:io';
 import 'package:logging/logging.dart';
 
 import 'env.dart';
-import 'test.dart' show Test, BrowserTest, VmTest;
+import 'test.dart' show Test, BrowserTest;
 
 
 int _coverageCount = 0;
@@ -102,7 +102,7 @@ class Coverage {
       'run',
       'coverage:format_coverage',
       '-l',
-      '--package-root=packages',
+      '--packages=.packages',
       '-i',
       collectionOutput.path,
       '-o',
