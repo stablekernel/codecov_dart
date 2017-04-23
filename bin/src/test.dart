@@ -139,7 +139,8 @@ class VMTest extends Test {
     log.info('Running tests in Dart VM...');
     process = await Process.start(
         'dart',
-        ['--observe=$_defaultObservatoryPort', dartTestFile.path],
+        ["--enable-vm-service=$_defaultObservatoryPort", "--pause-isolates-on-exit", "--warn-on-pause-with-no-debugger", dartTestFile.path],
+//        ['--observe=$_defaultObservatoryPort', dartTestFile.path],
         environment: {'DART_FLAGS': '--checked'}
     );
 
