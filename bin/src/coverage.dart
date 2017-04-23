@@ -39,8 +39,12 @@ class Coverage {
 
     Map mergedJson = JSON.decode(await coverages[0].collectionOutput.readAsString());
     for (int i = 1; i < coverages.length; i++) {
-      Map coverageJson = JSON.decode(await coverages[i].collectionOutput.readAsString());
-      _mergeCoveragePayloads(mergedJson, coverageJson);
+      try {
+        Map coverageJson = JSON.decode(await coverages[i].collectionOutput.readAsString());
+        _mergeCoveragePayloads(mergedJson, coverageJson);
+      } catch (e, st) {
+        print("Missed coverage for ${coverages[i]._tempCoverageDir.path} because $e, $st");
+      }
     }
 
     merged.collectionOutput = new File('${merged._tempCoverageDir.path}/coverage.json');
